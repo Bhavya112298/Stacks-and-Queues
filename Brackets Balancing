@@ -1,0 +1,46 @@
+expression = raw_input()  #accept the string input
+
+opening = ["(", "[", "{"]      #list of opening braces   
+closing = [")", "]", "}"]       #list of closing braces
+
+mapping = {closing[0]:opening[0],closing[1]:opening[1],closing[2]:opening[2]}     #map opening to closing
+
+if len(expression)%2!=0:       #1) if odd no. length
+  print "NO"
+
+if expression[0] in closing:     #2) if first is closing
+        print "NO"
+
+if expression[-1] in opening:      #3) if last is opening
+        print "NO"
+
+queue = []         #empty queue for appending open braces
+for i in expression:
+        
+       
+        if i in opening:
+            
+            queue.append(i)           #if opening, then append in queue
+            
+            
+        elif i in closing:
+            
+            if not queue:
+                                   #extra bracket then unbal
+                print "NO"
+            
+            elif queue:
+                  
+               if queue[-1] == mapping[i]:         #if queue exits check mapping and then pop
+                   
+                   queue.pop()                    
+                  
+                
+               else:
+                                          #if above not matched-->unbal
+                  print "NO"
+
+if not queue:
+                              #queue is empty now everything popped-->bal
+    print "YES"
+

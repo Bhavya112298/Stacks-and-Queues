@@ -1,0 +1,16 @@
+n=int(raw_input())          #no. of input command lines (push/pop/max)
+stack=[]                #empty stack to push and pop and find max
+
+for i in range(n): 
+  j=raw_input().split()             #for each input line 
+  
+  if len(j)==2:
+
+      stack.append(j[1])  #push
+      
+  elif j==['2']:
+      stack.pop()     #pop
+      
+  elif j==['3']:
+      s=map(int,stack)
+      print max(s)             #max

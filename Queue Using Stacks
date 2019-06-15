@@ -1,0 +1,15 @@
+queue=[]  #empty list for push,pop,etc
+
+n=int(raw_input())   #accept no. of input command lines
+
+for i in range(n):
+    j=raw_input().split()    #for each line do following
+    
+    if len(j)==2:
+        queue.append(j[1])   #push at rear(last idx)
+        
+    elif j==['2']:
+        queue.pop(0)           #pop at front(idx 0)
+        
+    elif j == ['3']:
+        print queue[0]      # print value at front

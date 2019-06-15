@@ -1,0 +1,36 @@
+s=raw_input()
+stack=[]
+operators=set(['*','-','+','%','/','**'])
+
+for i in s:
+
+    if i not in operators:
+        
+        stack.append(i)
+        
+    else:
+         a=stack.pop()
+    
+         b=stack.pop()
+        
+         if i=='+':
+            res=int(b)+int(a)
+         elif i=='-':
+            res=int(b)-int(a)    
+         elif i=='*':
+            res=int(b)*int(a)
+         elif i=='%':
+            res=int(b)%int(a) 
+         elif i=='/':
+             res=int(b)/int(a)
+         elif i=='**':
+             res=int(b)**int(a)
+    
+        
+        
+         stack.append(res)
+         
+      
+        
+print ''.join(map(str,stack))
+        

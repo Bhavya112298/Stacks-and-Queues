@@ -1,0 +1,24 @@
+def divide(n):     # quotient when divided by 2
+     return n/2
+
+
+def mod(n):               # remainder when divided by 2
+    return n%2     
+
+
+n=int(raw_input())
+q=[]          #list stores all quo
+r=[]          #list stores all rem  
+
+while n!=0:      #till n does not become 0
+   # find que and rem and append in list
+    b=mod(n)
+    r.append(b)
+    n=n/2        #decrement n
+i=0    
+binary=[] #final result list
+while r: # if r exists
+    binary.append(r.pop()) 
+binary=map(str,binary)
+print ''.join(binary)
+ 

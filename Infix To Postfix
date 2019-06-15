@@ -1,0 +1,27 @@
+operators = ['+','-','%','(',')','/','^','*']
+priority = {'+':1,'-':1,'*':2,'/':2,'^':3}
+def infix_postfix(exp):
+  stack =[]
+  output=''
+  
+  for i in exp:
+    if i not in operators:
+      output=output+i
+    elif i=='(':
+      stack.append(i)
+    elif i==')':
+      while stack and stack[-1]!='(':
+        output=output+stack.pop()
+      stack.pop()
+    else:
+      while stack and stack[-1]!='(' and priority[i]<=priority[stack[-1]]:
+          output=output+stack.pop()
+      stack.append(i)
+  while stack:
+      output=output+stack.pop()
+      
+  print output      
+  return output
+      
+exp=raw_input()
+infix_postfix(exp)
